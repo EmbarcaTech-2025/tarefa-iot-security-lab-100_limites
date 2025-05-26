@@ -6,7 +6,7 @@ Autores:
 
 > **João Vitor Silva do Espirito Santo**
 
-> **Yan**
+> **Yan Andrade de Sena**
 
 Curso: Residência Tecnológica em Sistemas Embarcados
 
@@ -39,10 +39,27 @@ Para visualizar a comunicação MQTT há duas opções para isso.
 1. Usar a interface do VScode para usar a comunicação serial, onde o código fará a rp escrever o estado da conexão wifi, mqtt e as publicações feitas ou observadas.
 2. Usar o mosquito_sub com os parâmetros de usuário e senha para ver as publicações. PS: as publicações vista com ele estarão criptografadas.
 
+### Lógica
 
+1. Realiza a conexão Wi-Fi com base no nome da Rede e a Senha do Wi-Fi
+2. Conecta ao Broker MQTT
 
+#### Publisher
 
+1. Cria uma string com a mensagem a ser enviada
+2. Forma um JSON com a mensagem e gera um timestamp
+3. Criptografa a mensagem utilizando o método XOR, utilizamos a chave de valor 13
+4. Envia a mensagem para o Broker
 
+#### Subscriber
+
+1. Se increve no tópico 
+2. Detecta se recebeu uma nova mensagem no tópico do broker
+3. Descriptografa a mensagem utilizando o método XOR, utilizamos a chave de valor 13
+4. Verifica se o valor novo da timestamp for maior do que a última timestamp
+5. Se for maior, a mensagem está correta
+6. Senão, foi detectado replay e uma mensagem será exibida no monitor serial
+7. Por fim, será exibido a mensagem recebida descriptografada no monitor serial 
 
 ## 📜 Licença
 GNU GPL-3.0.

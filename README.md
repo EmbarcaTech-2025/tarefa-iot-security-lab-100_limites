@@ -61,5 +61,16 @@ Para visualizar a comunicação MQTT há duas opções para isso.
 6. Senão, foi detectado replay e uma mensagem será exibida no monitor serial
 7. Por fim, será exibido a mensagem recebida descriptografada no monitor serial 
 
+### Discussões
+
+#### Quais técnicas são escaláveis?
+
+Ambas, tanto o subscriber quanto o publisher podem ter vários. Porém o broker deve ser arquiteturado para comportar o recebimento e envio das mensagens.
+
+#### Como aplicá-las com várias BitDogLab em rede escolar?
+
+Cada sala teria um subscriber que seria facilmente escalável, com os horários determinados pelo publisher as BitDogs em cada sala podem acionar um buzzer com a mudança de horários, sendo assim uma solução melhor que as sirenes utilizadas atualmente que são ensurdecedoras.
+
+
 ## 📜 Licença
 GNU GPL-3.0.

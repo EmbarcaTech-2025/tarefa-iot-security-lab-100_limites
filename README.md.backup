@@ -29,10 +29,10 @@ O código no repositório compila ambos programas para serem embarcados na placa
 >#define WIFI_PASSWD "Senha_rede"
 
 >#define BROKER_IP "192.168.43.121" //IP do broker na rede local
-3. Compile o projeto (Ctrl+Shift+B no VS Code ou via terminal com cmake e make)
-4. Conecte a BitDogLab via USB no modo de boot (pressione BOOTSEL enquanto conecta)
-5. Copie o arquivo .uf2 gerado para a unidade RPI-RP2
-6. A placa reiniciará automaticamente e iniciará a conexão
+2. Compile o projeto (Ctrl+Shift+B no VS Code ou via terminal com cmake e make)
+3. Conecte a BitDogLab via USB no modo de boot (pressione BOOTSEL enquanto conecta)
+4. Copie o arquivo .uf2 gerado para a unidade RPI-RP2
+5. A placa reiniciará automaticamente e iniciará a conexão
 
 Para visualizar a comunicação MQTT há duas opções para isso.
 

@@ -3,7 +3,7 @@
 // #include "pico/cyw43_arch.h"
 #include "include/wifi_conn.h"
 #include "include/mqtt_comm.h"
-#include <time.h>​
+#include <time.h>
 
 // #define WIFI_SSID "AP-ACCESS BLH"
 // #define WIFI_PASSWD "Fin@ApointBlH"
@@ -12,8 +12,8 @@
 // #define WIFI_SSID "Galaxy S23"
 // #define WIFI_PASSWD "apyz0089"
 
-#define BROKER_IP "192.168.1.76"// "192.168.181.121" // Altere para o IP do seu broker
-#define CLIENT_ID "pico-client"
+#define BROKER_IP "192.168.43.121"// "192.168.181.121" // Altere para o IP do seu broker
+#define CLIENT_ID "pico-sub"
 #define MQTT_TOPIC "escola/sala1/temperatura"
 
 // #include "hardware/vreg.h"
@@ -33,7 +33,7 @@ int main(){
     }
 
     // Configura cliente MQTT (sem autenticação)
-    mqtt_setup("pico-client", BROKER_IP, "aluno", "senha123");
+    mqtt_setup(CLIENT_ID, BROKER_IP, "aluno", "senha123");
     // mqtt_setup("pico-client", BROKER_IP, NULL, NULL);
     sleep_ms(3000);
     mqtt_subscribe_setup("escola/sala1/temperatura");
